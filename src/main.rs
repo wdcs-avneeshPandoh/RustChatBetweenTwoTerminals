@@ -2,13 +2,12 @@ use tokio::io::{AsyncBufReadExt, AsyncWriteExt, BufReader};
 use tokio::net::TcpListener;
 use tokio::sync::broadcast;
 
-
 fn give_me_default<T>() -> T
-where 
+where
     T: Default,
-    {
+{
     Default::default()
-    }
+}
 #[tokio::main]
 async fn main() {
     let value = give_me_default::<i32>();
@@ -40,7 +39,7 @@ async fn main() {
                         if addr != other_addr {
                             writer.write_all(msg.as_bytes()).await.unwrap();
                         }
- 
+
 
                     }
                 }
